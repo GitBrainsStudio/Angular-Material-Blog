@@ -16,7 +16,17 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  main
+  {
+    background-color: var(--main-color);
+    height: 100vh;
+  }
+
+ 
 </style>
 
-<ng-progress></ng-progress>
-<router-outlet></router-outlet>
+<main>
+  <ng-progress></ng-progress>
+  <router-outlet></router-outlet>
+</main>

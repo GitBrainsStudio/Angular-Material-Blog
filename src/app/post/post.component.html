@@ -1,5 +1,8 @@
-<app-nav-menu></app-nav-menu>
-<div class="docs-primary-header"><h1>{{ title }}</h1></div>
+<!-- <div class="docs-primary-header"><a [routerLink]="['/posts']"><h1><span class="material-icons arrow-back">arrow_back</span></h1></a></div>
+ -->
+<div class="header-layout">
+    <div class="docs-primary-header"><a [routerLink]="['/posts']"><h1><span class="material-icons arrow-back">arrow_back</span></h1></a></div>
+</div>
 
 <div class="doc-layout">
     <div class="doc" *ngIf="post">
@@ -13,30 +16,22 @@
 
 
 <style>
-    .docs-primary-header 
-    {
-    background: #3f51b5;
    
-    }
-
-    .docs-primary-header h1
-    {
-        font-weight: 300; 
-        padding: 25px 10px 20px 30px; 
-        margin: 0;
-        color: #fff;
-    }
-
     .doc
     {
         padding: 10px;
+    }
+
+    .doc-layout
+    {
+        background-color: var(--main-color);
     }
 
 
     @media screen and (min-width: 800px) {
         .doc
         {
-        width: 600px;  
+        width: var(--main-desktop-block); 
         }
 
         .doc-layout
@@ -46,6 +41,44 @@
         flex-direction: column;
         align-items: center;
         }
+    }
+
+    .docs-primary-header 
+    {
+        
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 20px 10px 20px 20px;
+    }
+
+    .header-layout
+    {
+      background: #3f51b5;
+    }
+
+    .docs-primary-header h1
+    {
+        font-weight: 300; 
+        /* padding: 25px 10px 20px 30px;  */
+        margin: 0;
+        color: #fff;
+    }
+
+    @media screen and (min-width: 800px) {
+        
+        .header-layout{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .docs-primary-header 
+        {
+            width: var(--main-desktop-block);
+        }
+
     }
 
 </style>

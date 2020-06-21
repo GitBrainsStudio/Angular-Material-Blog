@@ -15,6 +15,7 @@ import { HighlightService } from './_services/highlight.service';
 
 import { NgProgressModule } from "ngx-progressbar";
 import { NgProgressHttpModule } from "ngx-progressbar/http";
+import { PostCreatorComponent } from './post-creator/post-creator.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgProgressHttpModule } from "ngx-progressbar/http";
     PostsTabsComponent,
     PostsComponent,
     NavMenuComponent,
-    PostComponent
+    PostComponent,
+    PostCreatorComponent
   ],
   imports: [
     BrowserModule,

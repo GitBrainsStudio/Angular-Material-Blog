@@ -12,18 +12,30 @@
         </nav>
 </div>
 
+
   <router-outlet></router-outlet>
 
 <style>
+
+    .tabs-layout
+    {
+        padding-top: 10px;
+    }
+
+    nav
+    {
+        background-color: #fff;
+    }
     
     @media screen and (min-width: 800px) {
         nav
         {
-        width: 600px;  
+        width: calc(var(--main-desktop-block) + 40px); 
         }
 
         .tabs-layout
         {
+        padding-top: 10px;
         display: flex;
         justify-content: center;
         flex-direction: column;
