@@ -1,9 +1,5 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>назад</span>
-      
-    </mat-toolbar-row>
-</mat-toolbar>
+<app-nav-menu></app-nav-menu>
+<div class="docs-primary-header"><h1>{{ title }}</h1></div>
 
 <div class="doc-layout">
     <div class="doc" *ngIf="post">
@@ -17,6 +13,19 @@
 
 
 <style>
+    .docs-primary-header 
+    {
+    background: #3f51b5;
+   
+    }
+
+    .docs-primary-header h1
+    {
+        font-weight: 300; 
+        padding: 25px 10px 20px 30px; 
+        margin: 0;
+        color: #fff;
+    }
 
     .doc
     {

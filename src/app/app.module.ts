@@ -11,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostsComponent } from './posts/posts.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { PostComponent } from './post/post.component';
+import { HighlightService } from './_services/highlight.service';
+
+import { NgProgressModule } from "ngx-progressbar";
+import { NgProgressHttpModule } from "ngx-progressbar/http";
 
 @NgModule({
   declarations: [
@@ -25,9 +29,15 @@ import { PostComponent } from './post/post.component';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgProgressModule.withConfig({
+      spinner: true,
+      color: "#f71cff",
+      debounceTime : 1
+     }),
+    NgProgressHttpModule, 
   ],
-  providers: [],
+  providers: [HighlightService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,10 @@
-<mat-card *ngFor="let post of posts" style="margin-top: 5px; border-radius: 0; opacity: 0.6; transition: 0.3s;" [routerLink]="['/post', post.id]">
-    <h4> {{ post.title }}</h4>
-    <p>{{ post.preview }} </p>
-</mat-card>
+<div class="preview-layout">
+    <div class="preview-block" *ngFor="let post of posts"  [routerLink]="['/post', post.id]">
+        <h4> {{ post.title }}</h4>
+        <p>{{ post.preview }} </p>
+    </div>
+</div>
+
 
 <style>
 
@@ -11,4 +14,40 @@
         opacity: 1.0 !important;
     }
 
+    .preview-block
+    {   
+        padding: 10px;
+        margin-top: 5px; 
+        border-radius: 0;
+  
+        transition: 0.3s;
+        background-color: #fff;
+    }
+
+    .preview-block:hover
+    {
+        cursor: pointer;
+    }
+
+    .preview-layout
+    {
+        padding-top: 5px;
+        background-color: #f4f4f4;
+    }
+
+    @media screen and (min-width: 800px) {
+        
+        .preview-block
+        {
+            width: 600px;
+        }
+
+        .preview-layout
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
 </style>

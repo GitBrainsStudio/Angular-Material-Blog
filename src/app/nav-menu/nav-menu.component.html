@@ -1,5 +1,14 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="mat-elevation-z4">
     <mat-toolbar-row>
       <a mat-flat-button color="primary" [routerLink]="['/posts']">Посты</a>
+      
     </mat-toolbar-row>
 </mat-toolbar>
+
+<style>
+    mat-toolbar
+    {
+        position: relative;
+        z-index: 2;
+    }
+</style>

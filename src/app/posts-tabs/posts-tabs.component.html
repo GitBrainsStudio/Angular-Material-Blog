@@ -1,12 +1,33 @@
 <app-nav-menu></app-nav-menu>
 
-<nav mat-tab-nav-bar>
-    <a mat-tab-link
-    *ngFor="let link of navLinks"
-    [routerLink]="link.link"
-    routerLinkActive #rla="routerLinkActive"
-    [active]="rla.isActive">
-    {{ link.label }}
-    </a>
-    </nav>
+<div class="tabs-layout">
+    <nav mat-tab-nav-bar>
+        <a mat-tab-link
+        *ngFor="let link of navLinks"
+        [routerLink]="link.link"
+        routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        {{ link.label }}
+        </a>
+        </nav>
+</div>
+
   <router-outlet></router-outlet>
+
+<style>
+    
+    @media screen and (min-width: 800px) {
+        nav
+        {
+        width: 600px;  
+        }
+
+        .tabs-layout
+        {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        }
+    }
+</style>
