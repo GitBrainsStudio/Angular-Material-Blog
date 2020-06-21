@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "June"
+    }
+  },
+  "defaultProject": "June",
+  "cli": {
+    "analytics": false
+  }
 }

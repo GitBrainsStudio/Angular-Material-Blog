@@ -1,0 +1,14 @@
+<mat-card *ngFor="let post of posts" style="margin-top: 5px; border-radius: 0; opacity: 0.6; transition: 0.3s;" [routerLink]="['/post', post.id]">
+    <h4> {{ post.title }}</h4>
+    <p>{{ post.preview }} </p>
+</mat-card>
+
+<style>
+
+    mat-card:hover
+    {
+        cursor: pointer;
+        opacity: 1.0 !important;
+    }
+
+</style>
