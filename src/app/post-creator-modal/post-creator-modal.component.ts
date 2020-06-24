@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostService } from '../_services/post.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-post-creator',
-  templateUrl: './post-creator.component.html',
-  styleUrls: ['./post-creator.component.css']
+  selector: 'app-post-creator-modal',
+  templateUrl: './post-creator-modal.component.html',
+  styleUrls: ['./post-creator-modal.component.css']
 })
-export class PostCreatorComponent implements OnInit {
+export class PostCreatorModalComponent implements OnInit {
 
-  constructor(private postService : PostService, private route:Router) { }
+  constructor(private postService : PostService, private route:Router, public dialogRef: MatDialogRef<PostCreatorModalComponent>) { }
 
   ngOnInit(): void {
     this.postService.categories().subscribe((data:any) => this.categories = data);
@@ -26,7 +27,7 @@ export class PostCreatorComponent implements OnInit {
   onSubmit()
   {
     if (!this.publishForm.invalid)
-    this.postService.create(this.publishForm.value).subscribe(data => this.route.navigate(['/posts']))
+    this.postService.create(this.publishForm.value).subscribe(data => { this.dialogRef.close(); this.route.navigate(['/posts'])})
   }
 
   categories:any[] = [];

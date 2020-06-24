@@ -1,0 +1,38 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon>close</mat-icon>
+  </button>
+<h2 mat-dialog-title>Новая категория</h2>
+<form [formGroup]="categoryForm" novalidate (ngSubmit)="onSubmit()" >
+
+      
+    <mat-form-field class="example-form-field" style="width: 100%;">
+        <mat-label>Имя для маршрутов</mat-label>
+        <input matInput type="text" formControlName="engName">
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%;">
+        <mat-label>Отображаемое имя</mat-label>
+        <input matInput type="text" formControlName="rusName">
+      </mat-form-field>
+
+      <mat-form-field class="example-form-field" style="width: 100%;">
+        <mat-label>Ссылка на логотип</mat-label>
+        <input matInput type="text" formControlName="logo64Href">
+      </mat-form-field>
+
+      <div style="display: flex; justify-content: flex-end;">
+        <button mat-raised-button color="primary">Сохранить</button>
+      </div>
+
+    </form>
+
+<style>
+
+.close-button{
+  float: right;
+  top:-24px;
+  right:-24px;
+  font-size: 14px;
+}
+
+</style>

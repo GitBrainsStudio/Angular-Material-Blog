@@ -1,9 +1,68 @@
 <div class="header-layout">
-    <div class="docs-primary-header"><h1>Посты</h1></div>
-</div>
+   <!--  <div class="docs-primary-header">.<div><mat-icon>face</mat-icon> Войти</div></div> -->
+   <div class="account">
+    <div class="login">
 
+        <mat-chip (click)="openAuthentication()" *ngIf="!isUser" color="primary" selected>Войти</mat-chip>
+        <!-- <button mat-flat-button color="primary" *ngIf="!isUser" (click)="openAuthentication()">Вход</button> -->
+        <!-- <mat-icon [matMenuTriggerFor]="appMenu" *ngIf="isUser">face</mat-icon>  -->
+       <!--  <mat-chip *ngIf="isUser" color="primary" selected [matMenuTriggerFor]="appMenu">{{ userName }}</mat-chip> -->
+        <button mat-mini-fab color="accent"  *ngIf="isUser" [matMenuTriggerFor]="appMenu">
+            M
+          </button>
+        <!-- <h4 *ngIf="!isUser" (click)="openAuthentication()">Войти</h4>
+        <h2 *ngIf="isUser" >{{ userName }}</h2>
+        <mat-icon  [matMenuTriggerFor]="appMenu">arrow_drop_down</mat-icon> -->
+    </div>
+    </div>
+</div> 
+
+
+
+<mat-menu #appMenu="matMenu" xPosition="before">
+    <button mat-menu-item (click)="openPostCreator()">Добавить статью</button>
+    <button mat-menu-item (click)="openCategoryManager()">Управление категориями</button>
+    <button mat-menu-item (click)="logout()">Выйти</button>
+  </mat-menu>
 
 <style>
+
+    
+    .login
+    {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        color: #ff4081;
+        
+    }
+
+    .login:hover
+    {
+        cursor: pointer;
+    /*     color: #ff4081; */
+    }
+
+    .login h4
+    {
+        padding: 0;
+        margin: 0;
+    }
+
+    .account
+    {
+      /*   background-color: #fff; */
+      
+       /*  margin-bottom: 20px; */
+        padding: 10px;
+             
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+
     mat-toolbar
     {
         position: relative;
@@ -16,20 +75,21 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 20px 10px 20px 20px;
+        justify-content: space-between;
+        /* padding: 20px 10px 20px 20px; */
     }
 
     .header-layout
     {
-      background: #3f51b5;
+      /* background: #3f51b5; */
+      /* background: #feebef; */
     }
 
     .docs-primary-header h1
     {
         font-weight: 300; 
-        /* padding: 25px 10px 20px 30px;  */
         margin: 0;
-        color: #fff;
+        color: #333;
     }
 
     @media screen and (min-width: 800px) {
@@ -46,5 +106,11 @@
             width: var(--main-desktop-block);
         }
 
+        .account
+        {
+            width: calc(var(--main-desktop-block) + 20px); 
+        }
+
     }
+
 </style>

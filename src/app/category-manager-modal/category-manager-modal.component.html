@@ -1,0 +1,61 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon>close</mat-icon>
+  </button>
+<h2 mat-dialog-title>Менеджер категорий</h2>
+
+<div class="list" *ngIf="categories">
+ 
+    <div class="row" *ngFor="let c of categories">
+        {{ c.rusName }}
+        <div class="action">
+            <!-- <mat-icon>edit</mat-icon> -->
+            <mat-icon (click)="delete(c.id)">delete_outline</mat-icon>
+        </div>
+    </div>
+    <div style="display:flex; justify-content: center; margin-top: 10px;"><button mat-flat-button color="primary" (click)="openCategoryCreator()">Добавить новую категорию</button></div>
+
+</div>
+
+<style>
+
+/* .list
+{
+    width: 500px;
+    ad
+} */
+
+
+::ng-deep .mat-dialog-container {
+    overflow: visible !important;
+    }
+
+.row
+{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.507);
+    padding: 5px;
+}
+
+.action
+{
+    color: gray;
+}
+
+.action mat-icon:hover
+{
+    cursor: pointer;
+    color: #ff4081;
+}
+
+.close-button{
+  float: right;
+  top:-24px;
+  right:-24px;
+  font-size: 14px;
+}
+
+</style>

@@ -1,12 +1,62 @@
 <div class="preview-layout">
-    <div class="preview-block" *ngFor="let post of posts"  [routerLink]="['/post', post.id]">
-        <h4> {{ post.title }}</h4>
-        <p>{{ post.preview }} </p>
+    <div class="preview-block" *ngFor="let post of posts"  >
+        <div class="header">
+            <p class="title" [routerLink]="['/post', post.id]"> {{ post.title }}</p>
+            <button mat-icon-button [matMenuTriggerFor]="menu" (click)="selectPost(post)" *ngIf="isAdmin"><mat-icon>more_vert</mat-icon></button>
+        </div>
+        
+        <p class="preview-text">{{ post.preview }} </p>
+      
     </div>
 </div>
 
 
+<mat-menu #menu="matMenu" xPosition="before">
+  <button mat-menu-item>
+    <mat-icon>edit</mat-icon>
+    <span>Редактировать</span>
+  </button>
+  <button mat-menu-item (click)="delete()">
+    <mat-icon>delete_outline</mat-icon>
+    <span>Удалить</span>
+  </button>
+</mat-menu>
+
+
 <style>
+
+    
+
+    mat-menu button .span
+    {
+       
+    }
+
+    .header
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    p
+    {
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+    .preview-text
+    {
+        margin-top: 5px;
+    }
+
+    .title
+    {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+    }
 
     mat-card:hover
     {
@@ -19,6 +69,7 @@
         background-color: #fff;
         margin-bottom: 10px;
         outline: 0;
+        
     }
 
     .preview-block:hover
@@ -29,6 +80,7 @@
     .preview-layout
     {
         background-color: #f4f4f4;
+        
     }
 
 
@@ -38,7 +90,7 @@
         {
             width: var(--main-desktop-block);
             padding-left: 40px;
-            
+            padding: 20px;
         }
 
         .preview-layout
@@ -54,7 +106,7 @@
         
         .preview-block
         {   
-            padding: 20px 10px 5px 20px;
+            padding: 20px 10px 20px 20px;
             border-radius: 0;
             transition: 0.3s;
         }
@@ -63,6 +115,11 @@
         .preview-block h4
         {
             margin: 0;
+        }
+
+        p 
+        {
+            padding-block-end: 0;
         }
 
     }

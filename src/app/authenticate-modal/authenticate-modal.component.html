@@ -1,0 +1,30 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon>close</mat-icon>
+  </button>
+<form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" style="width: 100%; font-size: 14px;">
+        <input matInput placeholder="Логин" formControlName="login" class="animation a3">
+      </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%; font-size: 14px;">
+        <input matInput type="password" placeholder="Пароль" formControlName="password" class="animation a4">    
+      </mat-form-field>
+   <!--  <p class="animation a5"><a href="#">Забыли пароль?</a></p> -->
+   <button mat-flat-button color="primary" style="width: 100%;">Вход</button>
+</form>
+
+<style>
+.close-button{
+  float: right;
+  top:-24px;
+  right:-24px;
+  font-size: 14px;
+}
+
+/* .close-icon {
+  transition: 1s ease-in-out;
+}
+
+.close-icon:hover {
+  transform: rotate(180deg);
+} */
+</style>

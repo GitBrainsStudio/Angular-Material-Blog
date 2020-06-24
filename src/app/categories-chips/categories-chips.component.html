@@ -1,0 +1,19 @@
+<mat-chip-list>
+    <mat-chip [routerLink]="['/posts']"  [ngClass]="{'chip-active' : postsActive}">Все подряд</mat-chip>
+    <mat-chip [routerLink]="link.link" *ngFor="let link of chipsLinks" routerLinkActive="chip-active">{{ link.label }}</mat-chip>
+   <!--  <mat-chip [routerLink]="['/posts/new']" routerLinkActive="chip-active">Свежее</mat-chip> -->
+</mat-chip-list>
+
+<style>
+        .chip-active
+        {
+            background-color: #ff4081;
+            color: #fff;
+        }
+
+        mat-chip
+        {
+            white-space: nowrap;
+        }
+
+</style>
