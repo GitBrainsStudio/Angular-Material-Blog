@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostService } from '../_services/post.service';
 import { AuthenticationService } from '../_services/authentication.service';
+import { PostCreatorModalComponent } from '../post-creator-modal/post-creator-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-posts-tabs',
@@ -12,7 +14,7 @@ export class PostsTabsComponent implements OnInit {
 
   navLinks: any[];
   activeLinkIndex = -1; 
-  constructor(private router: Router, private activatedRouter : ActivatedRoute, private postService : PostService, private authenticationService : AuthenticationService) {
+  constructor(public dialog: MatDialog, private router: Router, private activatedRouter : ActivatedRoute, private postService : PostService, private authenticationService : AuthenticationService) {
 
   this.activatedRouter.paramMap.subscribe((params:any) => {console.log(params)});
 
@@ -57,5 +59,20 @@ ngOnInit(): void {
   });
 }
 
+openPostCreator()
+{
+  const dialogRef = this.dialog.open(PostCreatorModalComponent, 
+    {
+      autoFocus: false
+    });
 
+ dialogRef.afterClosed().subscribe(result => {
+   console.log(`Dialog result: ${result}`);
+ });
+}
+
+get isUser()
+  {
+    return this.authenticationService.authorized;
+  }
 }

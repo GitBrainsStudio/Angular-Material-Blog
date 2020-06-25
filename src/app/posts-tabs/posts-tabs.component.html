@@ -1,6 +1,6 @@
-<app-nav-menu></app-nav-menu>
+<!-- <app-nav-menu></app-nav-menu>
 
-
+ -->
 <div class="tabs-layout">
 
 
@@ -23,8 +23,83 @@
 
 
   <router-outlet></router-outlet>
+  <button mat-mini-fab aria-label="Example icon button with a filter list icon" class="plus-btn" (click)="openPostCreator()" *ngIf="isUser">
+    <mat-icon>add</mat-icon>
+  </button>
+  <mat-toolbar class="bottom-toolbar">
+      <div class="btn">
+        <mat-icon>home</mat-icon><p>Домой</p>
+      </div>
+      <div class="btn" [routerLink]="['/posts']" routerLinkActive="btn-active">
+        <mat-icon>send</mat-icon><p>Статьи</p>
+      </div>
+      <div class="btn">
+        <mat-icon>face</mat-icon><p>Профиль</p>
+      </div>
+      
+
+  </mat-toolbar>
 <style>
 
+    .plus-btn
+    {
+        position: fixed;
+        bottom: 100px;
+        right: 10px;
+        z-index: 1000;
+        background-color: #ff4081;
+    }
+
+    .btn
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.5;
+       /*  transition: 1s; */
+        outline: 0;
+    }
+
+    .btn:hover
+    {
+        opacity: 1;
+        transition: 1s;
+        cursor: pointer;
+    }
+
+    .btn-active
+    {
+        color: #fff;
+        opacity: 1;
+    }
+
+    .btn p
+    {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .bottom-toolbar
+    {
+        position: fixed;
+        bottom: 0; 
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        padding: 2em;
+        background-color: #ff4081;
+        color: #fff;
+    }
+
+    .navigation-layout
+        {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
 
     .chips
     {
@@ -34,13 +109,6 @@
         flex-direction: row;
         overflow: auto;
         flex-wrap: nowrap;
-    }
-
-  
-
-    .tabs-layout
-    {
-       /*  padding-top: 10px; */
     }
 
     nav
@@ -62,11 +130,23 @@
 
         .tabs-layout
         {
- /*        padding-top: 10px; */
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        }
+
+        .navigation-layout
+        {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu
+        {
+            width: calc(var(--main-desktop-block) + 40px);
         }
     }
 

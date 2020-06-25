@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../_services/post.service';
 import { HighlightService } from '../_services/highlight.service';
@@ -8,11 +8,12 @@ import { HighlightService } from '../_services/highlight.service';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
-export class PostComponent implements OnInit, AfterViewChecked {
+export class PostComponent implements OnInit {
 
   constructor(private activetedRouter : ActivatedRoute, private postService : PostService, private highlightService: HighlightService) { }
 
   ngOnInit(): void {
+    this.ngAfterViewChecked();
     this.downloadPostDetails(this.activetedRouter.snapshot.params['id']);
   }
 
