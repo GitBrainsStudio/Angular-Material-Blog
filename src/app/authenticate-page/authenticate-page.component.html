@@ -1,0 +1,93 @@
+
+<div class="layout">
+    <mat-toolbar>
+        <div class="row">
+            <mat-icon class="back-btn" [routerLink]="['/posts']">close</mat-icon> <div class="page-title">Вход по логину</div>
+        </div>
+    </mat-toolbar>
+    <div class="body">
+        <form [formGroup]="loginForm" novalidate>
+            <mat-form-field  style="width: 100%; font-size: 14px;">
+                <input matInput placeholder="Логин" formControlName="login" class="animation a3">
+              </mat-form-field>
+            <mat-form-field  style="width: 100%; font-size: 14px;">
+                <input matInput type="password" placeholder="Пароль" formControlName="password" class="animation a4">    
+              </mat-form-field>
+           <!--  <p class="animation a5"><a href="#">Забыли пароль?</a></p> -->
+          <!--  <button mat-flat-button color="primary" style="width: 100%;">Вход</button> -->
+           <mat-chip style="width: 100%; text-align: center;" (click)="onSubmit()">Вход</mat-chip>
+        </form>
+    </div>
+    <mat-chip-list></mat-chip-list>
+
+</div>
+
+<style>
+    .body
+    {
+        padding: 20px;
+        text-align: center;
+    }
+
+    @media screen and (min-width: 800px) {
+        .layout
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .row
+        {
+            width: 600px;
+            background-color: #ff4081;
+            color: #fff;
+        }
+
+        mat-toolbar
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .body
+        {
+            width: 600px;
+        }
+    }
+
+    .back-btn
+        {
+            margin-right: 20px;
+            outline: 0;
+        }   
+        
+    .back-btn:hover
+    {
+        cursor: pointer;
+    }
+
+
+    .page-title
+    {
+        font-weight: 500;
+    }
+
+    .row
+        {
+            background-color: #ff4081;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        mat-toolbar
+        {
+            background-color: #ff4081;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 18px;
+        }
+    
+</style>

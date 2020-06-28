@@ -16,7 +16,7 @@ export class PostsTabsComponent implements OnInit {
   activeLinkIndex = -1; 
   constructor(public dialog: MatDialog, private router: Router, private activatedRouter : ActivatedRoute, private postService : PostService, private authenticationService : AuthenticationService) {
 
-  this.activatedRouter.paramMap.subscribe((params:any) => {console.log(params)});
+  this.activatedRouter.paramMap.subscribe((params:any) => {});
 
     this.navLinks = [
         {

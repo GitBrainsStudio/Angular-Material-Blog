@@ -1,100 +1,45 @@
-<!-- <div class="docs-primary-header"><a [routerLink]="['/posts']"><h1><span class="material-icons arrow-back">arrow_back</span></h1></a></div>
- -->
-
- <div class="layout">
+<div class="layout">
     <mat-toolbar>
         <div class="row">
             <div style="display: flex; flex-direction: row; align-items: center;">
-                <mat-icon class="back-btn" [routerLink]="['/posts']">keyboard_backspace</mat-icon> <!-- <div class="page-title" *ngIf="post">{{ post.title}}</div> -->
+                <mat-icon class="back-btn" [routerLink]="['/posts']">keyboard_backspace</mat-icon> <div class="page-title">Новая категория</div>
             </div>
 
-            <mat-icon class="back-btn">share</mat-icon>
+            <mat-icon class="back-btn" (click)="onSubmit()">done</mat-icon>
         </div>
 
    
 
     </mat-toolbar>
-    <div class="body" *ngIf="post">
-        <h1>{{ post.title }}</h1>
-        <div [innerHTML]="post.content"></div>
-    
+    <div class="body">
+        <form [formGroup]="categoryForm" novalidate (ngSubmit)="onSubmit()" >
+
+      
+            <mat-form-field class="example-form-field" style="width: 100%;">
+                <mat-label>Имя для маршрутов</mat-label>
+                <input matInput type="text" formControlName="engName">
+              </mat-form-field>
+        
+              <mat-form-field style="width: 100%;">
+                <mat-label>Отображаемое имя</mat-label>
+                <input matInput type="text" formControlName="rusName">
+              </mat-form-field>
+        
+              <mat-form-field class="example-form-field" style="width: 100%;">
+                <mat-label>Ссылка на логотип</mat-label>
+                <input matInput type="text" formControlName="logo64Href">
+              </mat-form-field>
+        
+            </form>
+        
     </div>
- </div>
-
-
-
-<style>
-   
-    .doc
-    {
-        padding: 10px;
-    }
-
-    .doc-layout
-    {
-        background-color: var(--main-color);
-    }
-
-
-    @media screen and (min-width: 800px) {
-        .doc
-        {
-        width: var(--main-desktop-block); 
-        }
-
-        .doc-layout
-        {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        }
-    }
-
-    .docs-primary-header 
-    {
-        
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 20px 10px 20px 20px;
-    }
-
-    .header-layout
-    {
-     /*  background: #3f51b5; */
-    }
-
-    .docs-primary-header h1
-    {
-        font-weight: 300; 
-        /* padding: 25px 10px 20px 30px;  */
-        margin: 0;
-        color: #333;
-    }
-
-    @media screen and (min-width: 800px) {
-        
-        .header-layout{
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .docs-primary-header 
-        {
-            width: var(--main-desktop-block);
-        }
-
-    }
-
-</style>
+</div>
 
 <style>
     .body
     {
         padding: 20px;
+        text-align: center;
     }
 
     @media screen and (min-width: 800px) {

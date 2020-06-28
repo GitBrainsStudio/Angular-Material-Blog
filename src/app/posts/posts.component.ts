@@ -20,6 +20,9 @@ export class PostsComponent implements OnInit {
 
   getPreviews()
   {
+
+    console.log(this.router.url);
+
     if (this.router.url == "/posts/popular") this.postService.previews("popular").subscribe((data:any[]) => { this.posts = data; console.log(this.posts)});
     if (this.router.url == "/posts/new") this.postService.previews("new").subscribe((data:any[]) => this.posts = data);
     
@@ -46,4 +49,8 @@ export class PostsComponent implements OnInit {
 
   post: any;
 
+  editRoute()
+  {
+    this.router.navigate(['/post/edit/' + this.post.id])
+  }
 }

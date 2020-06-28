@@ -1,100 +1,59 @@
-<!-- <div class="docs-primary-header"><a [routerLink]="['/posts']"><h1><span class="material-icons arrow-back">arrow_back</span></h1></a></div>
- -->
-
- <div class="layout">
+<div class="layout">
     <mat-toolbar>
         <div class="row">
             <div style="display: flex; flex-direction: row; align-items: center;">
-                <mat-icon class="back-btn" [routerLink]="['/posts']">keyboard_backspace</mat-icon> <!-- <div class="page-title" *ngIf="post">{{ post.title}}</div> -->
+                <mat-icon class="back-btn" [routerLink]="['/posts']">keyboard_backspace</mat-icon> <div class="page-title" >Менеджер категорий</div>
             </div>
 
-            <mat-icon class="back-btn">share</mat-icon>
+           <!--  <mat-icon class="back-btn" (click)="onSubmit()">share</mat-icon> -->
         </div>
 
-   
 
     </mat-toolbar>
-    <div class="body" *ngIf="post">
-        <h1>{{ post.title }}</h1>
-        <div [innerHTML]="post.content"></div>
+    <div class="body" *ngIf="categories">
+        <div class="category" *ngFor="let c of categories">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                {{ c.rusName }}
+                <button mat-icon-button [matMenuTriggerFor]="menu" (click)="select(c)"><mat-icon>more_vert</mat-icon></button>
+            </div>
+        </div>
     
     </div>
  </div>
 
+ <button mat-mini-fab aria-label="Example icon button with a filter list icon" class="plus-btn" [routerLink]="['create']">
+    <mat-icon>edit</mat-icon>
+  </button>
 
+ <mat-menu #menu="matMenu" xPosition="before">
+    <button mat-menu-item (click)="editeRoute()">
+      <mat-icon>edit</mat-icon>
+      <span>Редактировать</span>
+    </button>
+    <button mat-menu-item (click)="delete()">
+      <mat-icon>delete_outline</mat-icon>
+      <span>Удалить</span>
+    </button>
+  </mat-menu>
 
-<style>
-   
-    .doc
+ <style>
+
+    .plus-btn
     {
-        padding: 10px;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 1000;
+        background-color: #ff4081;
     }
 
-    .doc-layout
+    .category
     {
-        background-color: var(--main-color);
-    }
-
-
-    @media screen and (min-width: 800px) {
-        .doc
-        {
-        width: var(--main-desktop-block); 
-        }
-
-        .doc-layout
-        {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        }
-    }
-
-    .docs-primary-header 
-    {
-        
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        background-color: #fff;
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: 500;
         padding: 20px 10px 20px 20px;
-    }
-
-    .header-layout
-    {
-     /*  background: #3f51b5; */
-    }
-
-    .docs-primary-header h1
-    {
-        font-weight: 300; 
-        /* padding: 25px 10px 20px 30px;  */
-        margin: 0;
-        color: #333;
-    }
-
-    @media screen and (min-width: 800px) {
-        
-        .header-layout{
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .docs-primary-header 
-        {
-            width: var(--main-desktop-block);
-        }
-
-    }
-
-</style>
-
-<style>
-    .body
-    {
-        padding: 20px;
     }
 
     @media screen and (min-width: 800px) {

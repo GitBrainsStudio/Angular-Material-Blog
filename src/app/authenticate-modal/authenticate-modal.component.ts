@@ -3,6 +3,7 @@ import { AuthenticationService } from '../_services/authentication.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-authenticate-modal',
@@ -13,8 +14,18 @@ export class AuthenticateModalComponent implements OnInit {
 
 
   constructor(private authenticationService : AuthenticationService, private router : Router, 
-    public dialogRef: MatDialogRef<AuthenticateModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+    public dialogRef: MatDialogRef<AuthenticateModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
+    
+    private _bottomSheetRef: MatBottomSheetRef<AuthenticateModalComponent>) { }
 
+
+   
+
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
+  
   ngOnInit(): void {
     this.initForm();
   }

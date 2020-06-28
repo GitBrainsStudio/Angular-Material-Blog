@@ -41,4 +41,6 @@ export class CategoryManagerModalComponent implements OnInit {
   {
     this.postService.deleteCategory(id).subscribe((data:any[]) =>  this.getCategories() );
   }
+
+  
 }

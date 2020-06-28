@@ -23,17 +23,17 @@
 
 
   <router-outlet></router-outlet>
-  <button mat-mini-fab aria-label="Example icon button with a filter list icon" class="plus-btn" (click)="openPostCreator()" *ngIf="isUser">
-    <mat-icon>add</mat-icon>
+  <button mat-mini-fab aria-label="Example icon button with a filter list icon" class="plus-btn" [routerLink]="['/post/create']" *ngIf="isUser">
+    <mat-icon>edit</mat-icon>
   </button>
   <mat-toolbar class="bottom-toolbar">
       <div class="btn">
         <mat-icon>home</mat-icon><p>Домой</p>
       </div>
       <div class="btn" [routerLink]="['/posts']" routerLinkActive="btn-active">
-        <mat-icon>send</mat-icon><p>Статьи</p>
+        <mat-icon>send</mat-icon><p>Лента</p>
       </div>
-      <div class="btn">
+      <div class="btn" [routerLink]="['/account']" routerLinkActive="btn-active">
         <mat-icon>face</mat-icon><p>Профиль</p>
       </div>
       

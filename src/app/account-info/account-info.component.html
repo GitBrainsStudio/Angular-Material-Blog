@@ -1,0 +1,224 @@
+<div class="layout">
+    <div class="body">
+        <div class="top" *ngIf="!isUser">
+            <h4>Войдите чтобы запостить новую статью</h4>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <mat-chip selected [routerLink]="['/authentication']">
+                    Вход | Регистрация
+                </mat-chip>
+            </div>
+        </div>
+
+        <div class="top" *ngIf="isUser">
+            <h4>Добрый день, {{ User.userName }} </h4>
+            <div style="display: flex; justify-content: center;">
+                <div class="round"></div>
+            </div>
+            
+            <mat-nav-list>
+                <mat-list-item [routerLink]="['/post/create']">
+                    <mat-icon style="margin-right: 5px;">add</mat-icon> Добавить статью 
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/categories']">
+                    <mat-icon style="margin-right: 5px;">dashboard</mat-icon> Управление категориями
+                </mat-list-item>
+    <!--             <div style="margin: 20px;">Темная тема <mat-slide-toggle></mat-slide-toggle></div> -->
+                <mat-list-item (click)="logout()">
+                    <mat-icon style="margin-right: 5px;">exit_to_app</mat-icon> Выход 
+                </mat-list-item>
+            
+            
+        </mat-nav-list>
+    <!--         <div style="display:flex; flex-direction:column; justify-content: center;">
+                <mat-chip *ngIf="isUser">
+                    Добавить статью <mat-icon>add</mat-icon>
+                </mat-chip>
+    
+                <mat-chip *ngIf="isUser">
+                    Выход <mat-icon>exit_to_app</mat-icon>
+                </mat-chip>
+            </div> -->
+
+       <!--      <div style="display: flex; justify-content: center; align-items: center;">
+                <mat-chip selected [routerLink]="['/authentication']">
+                    Вход | Регистрация
+                </mat-chip>
+            </div> -->
+            
+        </div>
+<!-- 
+        <div class="height: 100%; display: flex; justify-content: center; align-items: center;">
+            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+
+                    <h5>Версия: 2.4.1 (20004000101)</h5>
+                    <div>Темная тема <mat-slide-toggle></mat-slide-toggle></div>
+                    <div>Уведомления <mat-slide-toggle></mat-slide-toggle></div>
+            </div>
+          
+        </div> -->
+        
+    <!--     <div style="display: flex; align-items: center; justify-content: center;">
+            
+        </div> -->
+        
+    </div>
+</div>
+
+<mat-chip-list></mat-chip-list>
+
+
+
+
+
+<mat-toolbar class="bottom-toolbar">
+    <div class="btn">
+      <mat-icon>home</mat-icon><p>Домой</p>
+    </div>
+    <div class="btn" [routerLink]="['/posts']" routerLinkActive="btn-active">
+      <mat-icon>send</mat-icon><p>Статьи</p>
+    </div>
+    <div class="btn" [routerLink]="['/account']" routerLinkActive="btn-active">
+      <mat-icon>face</mat-icon><p>Профиль</p>
+    </div>
+    
+
+</mat-toolbar>
+
+
+<style>
+
+    .round {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    opacity: 0.9;
+    background-color: #ff4081;
+    }
+
+    ::ng-deep .mat-list-item-content
+    {
+        
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 14px;
+        justify-content: center;
+    }
+
+    .chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+    }
+
+    .top
+    {
+   /*      background-color: blueviolet; */
+        padding: 10px 0px 10px 0px;
+    }
+
+    .btn
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.5;
+        outline: 0;
+    }
+
+    .btn:hover
+    {
+        opacity: 1;
+        transition: 1s;
+        cursor: pointer;
+    }
+
+    .btn-active
+    {
+        color: #fff;
+        opacity: 1;
+    }
+
+    .btn p
+    {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .bottom-toolbar
+    {
+        position: fixed;
+        bottom: 0; 
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        padding: 2em;
+        background-color: #ff4081;
+        color: #fff;
+    }
+
+    .body
+    {
+
+        text-align: center;
+    }
+
+    
+
+
+    @media screen and (min-width: 800px) {
+
+        nav
+        {
+        width: calc(var(--main-desktop-block) + 40px); 
+        }
+
+        .chips
+        {
+        width: calc(var(--main-desktop-block) + 40px);   
+        }
+
+        .tabs-layout
+        {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        .navigation-layout
+        {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu
+        {
+            width: calc(var(--main-desktop-block) + 40px);
+        }
+
+        .layout
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .body
+        {
+            width: calc(var(--main-desktop-block) + 40px);
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        ::ng-deep .mat-chip-list-wrapper
+        {
+            flex-wrap: nowrap !important;
+        }
+    }
+</style>

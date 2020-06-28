@@ -24,6 +24,13 @@ import { AuthenticateModalComponent } from './authenticate-modal/authenticate-mo
 import { PostCreatorModalComponent } from './post-creator-modal/post-creator-modal.component';
 import { CategoryManagerModalComponent } from './category-manager-modal/category-manager-modal.component';
 import { CategoryCreatorModalComponent } from './category-creator-modal/category-creator-modal.component';
+import { AccountInfoComponent } from './account-info/account-info.component';
+import { AuthenticatePageComponent } from './authenticate-page/authenticate-page.component';
+import { NewPostPageComponent } from './new-post-page/new-post-page.component';
+import { CategoryManagerPageComponent } from './category-manager-page/category-manager-page.component';
+import { CategoryCreatePageComponent } from './category-create-page/category-create-page.component';
+import { PostEditorPageComponent } from './post-editor-page/post-editor-page.component';
+import { CategoryEditePageComponent } from './category-edite-page/category-edite-page.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +45,14 @@ import { CategoryCreatorModalComponent } from './category-creator-modal/category
     AuthenticateModalComponent,
     PostCreatorModalComponent,
     CategoryManagerModalComponent,
-    CategoryCreatorModalComponent
+    CategoryCreatorModalComponent,
+    AccountInfoComponent,
+    AuthenticatePageComponent,
+    NewPostPageComponent,
+    CategoryManagerPageComponent,
+    CategoryCreatePageComponent,
+    PostEditorPageComponent,
+    CategoryEditePageComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +70,7 @@ import { CategoryCreatorModalComponent } from './category-creator-modal/category
     FormsModule, 
     ReactiveFormsModule
   ],
-  providers: [HighlightService, { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }],
+  providers: [HighlightService, { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
